@@ -22,12 +22,12 @@ public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDao {
 
 	@Override
 	public int getBoardAllCount() {
-		return 0;
+		return getSqlSession().selectOne("com.ktdsuniversity.edu.homework_spring.bbs.dao.BoardDao.getBoardAllCount");
 	}
 	
 	@Override
 	public List<BoardVO> getAllBoard() {
-		return null;
+		return getSqlSession().selectList("com.ktdsuniversity.edu.homework_spring.bbs.dao.BoardDao.getAllBoard");
 	}
 	
 	@Override
