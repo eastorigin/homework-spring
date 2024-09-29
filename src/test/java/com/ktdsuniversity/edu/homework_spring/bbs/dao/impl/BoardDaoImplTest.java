@@ -1,6 +1,7 @@
 package com.ktdsuniversity.edu.homework_spring.bbs.dao.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -10,7 +11,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.context.annotation.Import;
 
 import com.ktdsuniversity.edu.homework_spring.bbs.dao.BoardDao;
-import com.ktdsuniversity.edu.homework_spring.bbs.vo.BoardVO;
+import com.ktdsuniversity.edu.homework_spring.bbs.vo.WriteBoardVO;
 
 @MybatisTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
@@ -22,13 +23,18 @@ public class BoardDaoImplTest {
 	
 	@Test
 	public void testCreateNewBoard() {
-		BoardVO boardVO = new BoardVO();
-		boardVO.setSubject("제목 테스트");
-		boardVO.setContent("내용 테스트");
-		boardVO.setEmail("email@test.com");
+		WriteBoardVO writeBoardVO = new WriteBoardVO();
+		writeBoardVO.setSubject("제목 테스트");
+		writeBoardVO.setContent("내용 테스트");
+		writeBoardVO.setEmail("email@test.com");
 		
-		assertEquals("제목 테스트", boardVO.getSubject());
-		assertEquals("내용 테스트", boardVO.getContent());
-		assertEquals("email@test.com", boardVO.getEmail());
+		int insertCount = this.boardDao.createNewBoard(writeBoardVO);
+		
+		assertTrue(insertCount == 1);
+		System.out.println("insertCount 개수: " + insertCount);
+		
+		assertEquals("제목 테스트", writeBoardVO.getSubject());
+		assertEquals("내용 테스트", writeBoardVO.getContent());
+		assertEquals("email@test.com", writeBoardVO.getEmail());
 	}
 }

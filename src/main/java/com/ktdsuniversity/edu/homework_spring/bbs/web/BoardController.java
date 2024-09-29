@@ -35,7 +35,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/board/write")
-	public ModelAndView doBoardWirte(@ModelAttribute WriteBoardVO writeBoardVO) {
+	public ModelAndView doBoardWirte(WriteBoardVO writeBoardVO) {
 		System.out.println("제목: " + writeBoardVO.getSubject());
 		System.out.println("이메일: " + writeBoardVO.getEmail());
 		System.out.println("내용: " + writeBoardVO.getContent());
