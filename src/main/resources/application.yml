@@ -10,6 +10,6 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-  mybatis:
-    config-location: classpath:mybatis/mybatis-config.xml
-    mapper-locations: classpath:com/ktdsuniversity/edu/homework_spring/**/dao/mapper/*BoardDaoMapper.xml
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:com/ktdsuniversity/edu/homework_spring/**/dao/mapper/*Mapper.xml
